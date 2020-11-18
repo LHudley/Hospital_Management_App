@@ -1,4 +1,5 @@
 package hospital.management;
+import ProjectPackage.ConnectionClass;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -22,12 +23,11 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-import ProjectPackage.ConnectionClass;
 import net.proteanit.sql.DbUtils;
 import javax.swing.JScrollPane;
 
 
-public class HealthHistory {
+public class HealthHistory  {
 
 	private JFrame frame;
 	private JTextField txtHisPtId;
@@ -61,8 +61,12 @@ public class HealthHistory {
 	/**
 	 * Create the application.
 	 */
-	public HealthHistory() {
+	public HealthHistory () {
 		initialize();
+		
+
+
+
 	}
 
 	/**
@@ -77,7 +81,7 @@ public class HealthHistory {
 		frame.setBounds(280, 190, 810,530);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JButton btnClose = new JButton("Close");
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -100,13 +104,23 @@ public class HealthHistory {
 		frame.getContentPane().add(txtHisPtId);
 		txtHisPtId.setColumns(10);
 		
+
+		JLabel lblNewLabel_1 = new JLabel("Patient Doesn't Exist!");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setForeground(new Color(255, 102, 0));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_1.setBounds(259, 108, 266, 23);
+		frame.getContentPane().add(lblNewLabel_1);
+		lblNewLabel_1.setVisible(false);
+		
+		
 		JButton btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String pd = txtHisPtId.getText();
 				try {
 					Connection con = ConnectionClass.getCon();
-					Statement st = con.createStatement();
+					Statement st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 					ResultSet rs = st.executeQuery("select * from patient where patientId = '" + pd + "'" );
 					table.setModel(DbUtils.resultSetToTableModel(rs));
 					
@@ -121,7 +135,7 @@ public class HealthHistory {
 						flag = 1;
 					}
 				}
-				catch(Exception e1) {
+				catch(Exception a) {
 
 					JOptionPane.showMessageDialog(null, "Connection Error");
 					
@@ -131,13 +145,6 @@ public class HealthHistory {
 		btnSearch.setBounds(529, 64, 89, 23);
 		frame.getContentPane().add(btnSearch);
 		
-		JLabel lblNewLabel_1 = new JLabel("Patient Doesn't Exist!");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setForeground(new Color(255, 102, 0));
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(259, 108, 266, 23);
-		frame.getContentPane().add(lblNewLabel_1);
-		lblNewLabel_1.setVisible(false);
 
 		
 		JLabel lblNewLabel_2 = new JLabel("Symptoms");
@@ -228,11 +235,12 @@ public class HealthHistory {
 		btnSave.setBounds(295, 473, 89, 23);
 		frame.getContentPane().add(btnSave);
 		
-		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(36, 211, 607, -82);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(46, 142, 708, 58);
 		frame.getContentPane().add(scrollPane);
 		
 		table = new JTable();
+		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
@@ -240,11 +248,8 @@ public class HealthHistory {
 				"Patient Id", "First Name", "Last Name", "Gender", "DOB", "Phone", "Address", "Info"
 			}
 		));
-		table.setBounds(46, 142, 583, 58);
         table.setFillsViewportHeight(true);
-		frame.getContentPane().add(table);
 		
 
-		//scrollPane.add(table);
 	}
 }
