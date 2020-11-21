@@ -216,14 +216,40 @@ public class HealthHistory  {
 		JButton btnSave = new JButton("SAVE");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(flag == 1) {
+					
+					String patientId = txtHisPtId.getText();
+					String symptoms = txtSymptoms.getText();
+					String diagnosis = txtDiag.getText();
+					String medication = txtMed.getText();
+					String timing;
+					String refill;
+					
+					if(chckbxRefill.isSelected()) {
+						
+						refill = "YES";
+						timing = (String)comboBoxTiming.getSelectedItem();
+					}
+					else {
+						refill = "NO";
+						timing = "";
+					}
+						
+					try {
+						Connection con = ConnectionClass.getCon();
+						Statement st = con.createStatement();
+						st.executeUpdate("insert into patientreport(patientId, symptoms, diagnosis, medicine, refill, timing) values('" + patientId + "','" + symptoms + "','" + diagnosis + "','" + medication + "','" + refill + "','" + timing + "')" );
+						JOptionPane.showMessageDialog(null, "Update Successful");
+						
+					}
+					catch(Exception b) {
+						JOptionPane.showInputDialog(this, b);
+					}
 				
-				String patientId = txtHisPtId.getText();
-				String symptoms = txtSymptoms.getText();
-				String diagnosis = txtDiag.getText();
-				String timing = (String) comboBoxTiming.getSelectedItem();
-				String medication = txtMed.getText();
-				//String refill = chckbxRefill.
-				
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Patient field is empty");;
+				}
 			}
 		
 				
@@ -252,4 +278,7 @@ public class HealthHistory  {
 		
 
 	}
+
+
+	
 }

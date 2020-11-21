@@ -70,6 +70,7 @@ public class Home {
 			public void actionPerformed(ActionEvent e) {
 				HealthHistory hh = new HealthHistory();
 				  hh.healthhis();
+					
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -77,6 +78,12 @@ public class Home {
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("PT. HISTORY");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PtHistory ph = new PtHistory();
+				ph.patientHist();
+			}
+		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton_2.setBounds(486, 98, 168, 43);
 		frame.getContentPane().add(btnNewButton_2);
