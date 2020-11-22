@@ -144,7 +144,7 @@ public class Hospital_Mng {
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\b2she\\Desktop\\Hosp_Manag_Images\\pexels-gustavo-fring-4173239.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\b2she\\git\\Hospital_Management_App\\Hospital Management Application\\Hosp_Manag_Images\\pexels-gustavo-fring-4173239.jpg"));
 		lblNewLabel_1.setBounds(0, 0, 1366, 768);
 		frame.getContentPane().add(lblNewLabel_1);
 	}

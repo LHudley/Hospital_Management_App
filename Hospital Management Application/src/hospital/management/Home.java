@@ -137,7 +137,7 @@ public class Home {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\b2she\\Desktop\\Hosp_Manag_Images\\oie_22114170LprLcO5.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\b2she\\git\\Hospital_Management_App\\Hospital Management Application\\Hosp_Manag_Images\\oie_22114170LprLcO5.png"));
 		lblNewLabel_1.setBounds(0, 0, 1366, 768);
 		frame.getContentPane().add(lblNewLabel_1);
 	}

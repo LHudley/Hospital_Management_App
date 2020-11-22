@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/hospital/management/pexels-gustavo-fring-4173239.jpg</name>
-			<type>1</type>
-			<location>C:/Users/b2she/Desktop/Hosp_Manag_Images/pexels-gustavo-fring-4173239.jpg</location>
-		</link>
-	</linkedResources>
 </projectDescription>
