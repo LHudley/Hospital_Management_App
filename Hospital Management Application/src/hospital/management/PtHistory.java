@@ -25,6 +25,8 @@ import java.sql.Statement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.*;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
 
 public class PtHistory {
 
@@ -78,12 +80,12 @@ public class PtHistory {
 			new Object[][] {
 			},
 			new String[] {
-				"Table1", "Table2", "Table3", "Table4"
 			}
 		));
         table.setFillsViewportHeight(true);
         
         JButton btnClose = new JButton("CLOSE");
+        btnClose.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
         btnClose.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		Home hm = new Home();
@@ -97,6 +99,7 @@ public class PtHistory {
         frame.getContentPane().add(btnClose);
         
         JButton btnNewButton = new JButton("INFO");
+        btnNewButton.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
         btnNewButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
@@ -117,7 +120,7 @@ public class PtHistory {
         btnNewButton.setForeground(Color.WHITE);
         btnNewButton.setBackground(Color.RED);
         btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-        btnNewButton.setBounds(46, 395, 89, 23);
+        btnNewButton.setBounds(48, 433, 89, 23);
         frame.getContentPane().add(btnNewButton);
 
 	}

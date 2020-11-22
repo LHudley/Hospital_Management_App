@@ -16,6 +16,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
 
 public class Hospital_Mng {
 
@@ -83,6 +85,7 @@ public class Hospital_Mng {
 		txtUsername.setColumns(10);
 		
 		JButton btnLogin = new JButton("LOGIN");
+		btnLogin.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -104,6 +107,7 @@ public class Hospital_Mng {
 		panel.add(btnLogin);
 		
 		JButton btnClear = new JButton("CLEAR");
+		btnClear.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtUsername.setText("");
@@ -128,6 +132,7 @@ public class Hospital_Mng {
 		lblNewLabel.setForeground(new Color(109, 146, 199));
 		
 		JButton btnNewButton = new JButton("CLOSE");
+		btnNewButton.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);

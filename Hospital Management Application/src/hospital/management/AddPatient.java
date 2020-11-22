@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
 
 public class AddPatient {
 
@@ -65,6 +67,7 @@ public class AddPatient {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnAddClose = new JButton("CLOSE");
+		btnAddClose.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnAddClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Home hm = new Home();
@@ -161,6 +164,7 @@ public class AddPatient {
 		txtMore.setColumns(10);
 		
 		JButton btnSave = new JButton("SAVE");
+		btnSave.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String patientId = txtId.getText();
@@ -189,7 +193,7 @@ public class AddPatient {
 		btnSave.setBackground(Color.RED);
 		btnSave.setForeground(Color.WHITE);
 		btnSave.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnSave.setBounds(295, 464, 89, 23);
+		btnSave.setBounds(295, 463, 89, 23);
 		frame.getContentPane().add(btnSave);
 	}
 }

@@ -25,6 +25,8 @@ import javax.swing.table.DefaultTableModel;
 
 import net.proteanit.sql.DbUtils;
 import javax.swing.JScrollPane;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
 
 
 public class HealthHistory  {
@@ -83,6 +85,7 @@ public class HealthHistory  {
 		frame.getContentPane().setLayout(null);
 
 		JButton btnClose = new JButton("Close");
+		btnClose.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Home hm = new Home();
@@ -214,6 +217,7 @@ public class HealthHistory  {
 		
 		
 		JButton btnSave = new JButton("SAVE");
+		btnSave.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(flag == 1) {
